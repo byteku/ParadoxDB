@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadoxToCSV", "DBFileViewer\ParadoxToCSV.csproj", "{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadoxReader", "..\..\..\Desktop\paradox-reader\ParadoxReader\ParadoxReader.csproj", "{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadoxReader", "paradox-reader\ParadoxReader\ParadoxReader.csproj", "{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

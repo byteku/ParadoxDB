@@ -12,11 +12,11 @@ C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\bin\Debug\EntityFram
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\bin\Debug\System.Data.SQLite.xml
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\ParadoxToCSV.csprojResolveAssemblyReference.cache
-C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\DBFileViewer.Form1.resources
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\DBFileViewer.Properties.Resources.resources
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\ParadoxToCSV.csproj.GenerateResource.cache
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\ParadoxToCSV.csproj.CoreCompileInputs.cache
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\ParadoxToCSV.csproj.CopyComplete
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\DBFileViewer.exe
 C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\DBFileViewer.pdb
+C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\DBFileViewer.MainForm.resources
+C:\Users\chunsberger\source\repos\DBFileViewer\DBFileViewer\obj\Debug\ParadoxToCSV.csprojResolveAssemblyReference.cache

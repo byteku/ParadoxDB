@@ -14,29 +14,32 @@ using ParadoxReader;
 
 namespace DBFileViewer
 {
-	public partial class Form1 : Form
+	public partial class MainForm : Form
 	{
 		string filepath;
 
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog ofd = new OpenFileDialog();
-			ofd.InitialDirectory = "c:\\";
-			ofd.Filter = "DB files (*.db)|*.db";
-			ofd.FilterIndex = 0;
-			DialogResult result = ofd.ShowDialog(); // Show the dialog
-
-			// On file selection
-			if (result == DialogResult.OK)
+			using (OpenFileDialog ofd = new OpenFileDialog())
 			{
-				filepath = ofd.FileName;
-				lblFile.Text = filepath;
-			}
+				ofd.Title = "Select the Paradox database file to convert";
+				ofd.Filter = "DB files (*.db)|*.db";
+				ofd.FilterIndex = 0;
+				ofd.RestoreDirectory = true;
+				DialogResult result = ofd.ShowDialog(); // Show the dialog
+
+				// On file selection
+				if (result == DialogResult.OK)
+				{
+					filepath = ofd.FileName;
+					txtSelectedFile.Text = filepath;
+				}
+			}	
 		}
 
 		public void WriteCSV(string filepath)
@@ -74,7 +77,12 @@ namespace DBFileViewer
 					sw.WriteLine(line);
 				}
 			}
-			MessageBox.Show("CSV conversion complete.");
+			
+			DialogResult dialogResult = MessageBox.Show("CSV conversion complete.\n\nView output file?", "Conversion Status", MessageBoxButtons.YesNo);
+			if (dialogResult == DialogResult.Yes)
+			{
+				Process.Start("explorer.exe", Directory.GetParent(filepath).ToString());
+			}
 		}
 
 		public string GetTableName(string filename)
