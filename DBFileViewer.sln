@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadoxToCSV", "DBFileViewer\ParadoxToCSV.csproj", "{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParadoxReader", "..\..\..\Desktop\paradox-reader\ParadoxReader\ParadoxReader.csproj", "{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C8DE8F3-C585-4DCB-BCF0-6188F4D2C742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3ADF35-FE64-4BA5-A3BC-955B912ADA9B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A8965DF-49A9-41D6-94E3-288E54C9E25C}
+	EndGlobalSection
+EndGlobal
