@@ -16,7 +16,7 @@ namespace DBFileViewer
 {
 	public partial class MainForm : Form
 	{
-		string filepath;
+		string[] filepaths;
 
 		public MainForm()
 		{
@@ -31,57 +31,71 @@ namespace DBFileViewer
 				ofd.Filter = "DB files (*.db)|*.db";
 				ofd.FilterIndex = 0;
 				ofd.RestoreDirectory = true;
+				ofd.Multiselect = true;
 				DialogResult result = ofd.ShowDialog(); // Show the dialog
 
 				// On file selection
 				if (result == DialogResult.OK)
 				{
-					filepath = ofd.FileName;
-					txtSelectedFile.Text = filepath;
+					filepaths = ofd.FileNames;
+					if(ofd.FileNames.Length > 1)
+					{
+						txtSelectedFile.Text = "Multiple selected";
+					}
+					else if (ofd.FileNames.Length == 1)
+					{
+						txtSelectedFile.Text = ofd.FileNames[0];
+					}
+					else
+					{
+						txtSelectedFile.Text = "No File Selected";
+					}
 				}
 			}	
 		}
 
-		public void WriteCSV(string filepath)
+		public void WriteCSV(string[] filepaths)
 		{
-			DataTable dt = new DataTable();
-			string filename = Path.GetFileName(filepath);
-			string tablename = GetTableName(filename);
-			var table = new ParadoxTable(Directory.GetParent(filepath).ToString(), tablename);
-			using (StreamWriter sw = new StreamWriter(Directory.GetParent(filepath).ToString() + "\\" + tablename + ".csv"))
+			foreach(string filepath in filepaths)
 			{
-				string line = "";
-				// Write headers
-				for (int i = 0; i < table.FieldCount; i++)
+				string filename = Path.GetFileName(filepath);
+				string tablename = GetTableName(filename);
+				var table = new ParadoxTable(Directory.GetParent(filepath).ToString(), tablename);
+				using (StreamWriter sw = new StreamWriter(Directory.GetParent(filepath).ToString() + "\\" + tablename + ".csv"))
 				{
-					line += table.FieldNames[i];
-					if (i < table.FieldCount - 1)
-					{
-						line += ",";
-					}
-				}
-				sw.WriteLine(line);
-
-				// Write data
-				foreach (var rec in table.Enumerate())
-				{
-					line = "";
+					string line = "";
+					// Write headers
 					for (int i = 0; i < table.FieldCount; i++)
 					{
-						line += rec.DataValues[i];
+						line += table.FieldNames[i];
 						if (i < table.FieldCount - 1)
 						{
 							line += ",";
 						}
 					}
 					sw.WriteLine(line);
+
+					// Write data
+					foreach (var rec in table.Enumerate())
+					{
+						line = "";
+						for (int i = 0; i < table.FieldCount; i++)
+						{
+							line += rec.DataValues[i];
+							if (i < table.FieldCount - 1)
+							{
+								line += ",";
+							}
+						}
+						sw.WriteLine(line);
+					}
 				}
 			}
 			
-			DialogResult dialogResult = MessageBox.Show("CSV conversion complete.\n\nView output file?", "Conversion Status", MessageBoxButtons.YesNo);
+			DialogResult dialogResult = MessageBox.Show("CSV conversion complete.\n\nView output files?", "Conversion Status", MessageBoxButtons.YesNo);
 			if (dialogResult == DialogResult.Yes)
 			{
-				Process.Start("explorer.exe", Directory.GetParent(filepath).ToString());
+				Process.Start("explorer.exe", Directory.GetParent(filepaths[0]).ToString());
 			}
 		}
 
@@ -97,9 +111,9 @@ namespace DBFileViewer
 
 		private void btnConvert_Click(object sender, EventArgs e)
 		{
-			if(filepath != null)
+			if(filepaths[0] != null)
 			{
-				WriteCSV(filepath);
+				WriteCSV(filepaths);
 			}
 			else
 			{
